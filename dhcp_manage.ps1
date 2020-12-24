@@ -1,9 +1,5 @@
 ﻿################## METADATA #################### 
 # NAME: Roberto Canovas
-# USERNAME: b18robth
-# COURSE: Script programming IT384G – Spring 2019 
-# ASSIGNMENT: Assignment 1 - PowerShell
-# DATE OF LAST CHANGE: 2019-05-22
 ################################################
 
 cls
