@@ -13,7 +13,7 @@ get-executionpolicy
 $messages = @()
 $messages_tidy = @()
 
-#Import chat log content into a XML object, then slelect specific obejcts of interest
+#Import chat log content into a XML object, then select specific obejcts of interest
 [xml]$chatlog = Get-Content $path
 $chatlog.history.record | %{$messages += $_.dir + ";" + $_.msg + ";" +  $_.timestamp}
 
@@ -29,7 +29,6 @@ foreach($index in $messages){
         $messages_tidy += $pattern.replace($index, $remote, 1)
         }
     }
-
 #Ensure that no messages gets lost in the process...
 if($messages.Length -ne $messages_tidy.Length){
     echo "Some message seems missing, exiting now......"
@@ -37,14 +36,11 @@ if($messages.Length -ne $messages_tidy.Length){
     }
 
 #Write a headerrow and then output chat messaged to the outputfile.
-
 $header = "Sender;Message;Timestamp"
 Out-File -FilePath $outpath -InputObject $header
 
 foreach($message in $messages_tidy){
     Out-File -FilePath $outpath -InputObject $message -Append
-
-
 }
 
 
